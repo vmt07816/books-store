@@ -40,6 +40,14 @@ def get_all():
     except Exception as e:
 	    return(str(e))
 
+@app.route("/removeall")
+def get_all():
+    try:
+        db.session.query(Book).delete()
+        db.session.commit()
+    except Exception as e:
+	    return(str(e))
+        
 @app.route("/get/<id_>")
 def get_by_id(id_):
     try:
