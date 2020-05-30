@@ -30,7 +30,7 @@ def add_book():
         db.session.commit()
         return "Book added. book id={}".format(book.id)
     except Exception as e:
-	    return(str(e))
+        return(str(e))
 
 @app.route("/getall")
 def get_all():
@@ -38,16 +38,16 @@ def get_all():
         books=Book.query.all()
         return  jsonify([e.serialize() for e in books])
     except Exception as e:
-	    return(str(e))
+        return(str(e))
 
 @app.route("/removeall")
 def remove_all():
     try:
         db.session.query(Book).delete()
         db.session.commit()
-	return "All records were deleted"
+    return "All records were deleted"
     except Exception as e:
-	    return(str(e))
+        return(str(e))
         
 @app.route("/get/<id_>")
 def get_by_id(id_):
@@ -55,7 +55,7 @@ def get_by_id(id_):
         book=Book.query.filter_by(id=id_).first()
         return jsonify(book.serialize())
     except Exception as e:
-	    return(str(e))
+        return(str(e))
 
 @app.route("/name/<name_>")
 def get_by_name(name_):
@@ -63,7 +63,7 @@ def get_by_name(name_):
         book=Book.query.filter_by(name=name_).first()
         return jsonify(book.serialize())
     except Exception as e:
-	    return(str(e))
+        return(str(e))
 
 @app.route("/add/form",methods=['GET', 'POST'])
 def add_book_form():
