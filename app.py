@@ -41,7 +41,7 @@ def get_all():
 	    return(str(e))
 
 @app.route("/removeall")
-def get_all():
+def remove_all():
     try:
         db.session.query(Book).delete()
         db.session.commit()
