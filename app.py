@@ -45,7 +45,7 @@ def remove_all():
     try:
         db.session.query(Book).delete()
         db.session.commit()
-    return "All records were deleted"
+        return "All records were deleted"
     except Exception as e:
         return(str(e))
         
